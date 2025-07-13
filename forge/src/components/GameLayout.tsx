@@ -5,7 +5,10 @@ import FlappyBirdGame from "./Games/FlappyBird";
 import CrossyRoadGame from "./Games/Crossy Road";
 import WhackAMoleGame from "./Games/Whack A Mole.tsx";
 import SpeedRunnerSolo from "./Games/Speed Runner.tsx";
+import MatchThree from "./Games/Match 3.tsx";
+
 import { getParsedGameConfig } from "../api/gameTweak";
+
 
 const GameLayout: React.FC = () => {
     const [selectedGame, setSelectedGame] = useState("crossy");
@@ -15,7 +18,8 @@ const GameLayout: React.FC = () => {
         flappy: ["Bird", "Background", "Pipes"],
         crossy: ["Chicken", "Car"],
         whack: ["Mole"],
-        runner: ["Runner", "Tiles"]
+        runner: ["Runner", "Tiles"],
+        match: ["Tile 1", "Tile 2", "Tile 3"]
     };
 
     const renderGame = () => {
@@ -28,6 +32,8 @@ const GameLayout: React.FC = () => {
                 return <WhackAMoleGame />;
             case "runner":
                 return <SpeedRunnerSolo />;
+            case "match":
+                return <MatchThree />;
             default:
                 return null;
         }
@@ -62,6 +68,7 @@ const GameLayout: React.FC = () => {
                     <option value="crossy">Crossy Road</option>
                     <option value="whack">Whack-a-mole</option>
                     <option value="runner">Speed Runner</option>
+                    <option value="match">Simple Match Three</option>
                 </select>
 
                 <h2>AI Reskinning</h2>
